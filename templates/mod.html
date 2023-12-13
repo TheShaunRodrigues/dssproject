@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DSS for HSD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <style>
+    #banner{
+      height:360 px;
+      width: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Moderator page for social media website</h1>
+    <img class="img-fluid" id="banner" src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2022/03/hate-speech-detection-using-machine-learning.png">
+    <p>List of banned users due to detecting innapropriate activity despite multiple warnings:</p>
+    <p>
+      <div class="col-10">Display list of banned users here(from database)
+        <div class="col-2">
+          <button type="button" class="btn btn-primary">Unban</button>
+        </div>
+      </div>
+    </p>
+    <p>The Creators of this project are:</p><br>
+    <p>
+      {%for creator in creators%}
+        <div class="border-bottom" style="margin-bottom: 10px;">{{creator["name"]}}</div>
+      {%endfor%}
+    </p>
+  </div>
+</body>
+</html>
