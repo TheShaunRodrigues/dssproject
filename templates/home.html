@@ -2,15 +2,31 @@
 <html>
 <head>
   <title>DSS for HSD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <style>
-    h1 {
-      font-size: 16px;
-      font-family: Roboto;
-      color: rgb(90,0,30);
+    #banner{
+      height:360 px;
+      width: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
-  <h1>Hello there</h1>
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Hello there</h1>
+    <img class="img-fluid" id="banner" src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2022/03/hate-speech-detection-using-machine-learning.png">
+    <p>ToDo-Insert form here</p>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary">Submit Details</button>
+    </div>
+    <p>The Creators of this project are:</p><br>
+    <p>
+      {%for creator in creators%}
+        <div class="border-bottom" style="margin-bottom: 10px;">{{creator["name"]}}</div>
+      {%endfor%}
+    </p>
+  </div>
 </body>
 </html>
