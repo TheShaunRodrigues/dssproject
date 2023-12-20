@@ -16,13 +16,13 @@
 <body>
   {%include 'nav.html'%}
   <div class="container">
-    <h1 class="text-center mt-4 mb-4">Hello there</h1>
+    <h1 class="text-center mt-4 mb-4">DSS for Hate Speech Detection</h1>
     <img class="img-fluid" id="banner" src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2022/03/hate-speech-detection-using-machine-learning.png">
     <p>ToDo-Insert form here</p>
     <div class="text-center">
       <button type="button" class="btn btn-primary">Submit Details</button>
     </div>
-    <p>The Creators of this project are:</p><br>
+    <p>The Creators of this project are:</p>
     <p>
       {%for creator in creators%}
         <div class="border-bottom" style="margin-bottom: 10px;">{{creator["name"]}}</div>
