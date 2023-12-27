@@ -59,7 +59,7 @@ class Entries:
       pass
 
 
-@app.route("/")
+@app.route("/home")
 def hello_world():
   return render_template("home.html", creators=CREATORS)
 
@@ -68,6 +68,9 @@ def hello_world():
 def list_creators():
   return jsonify(CREATORS)
 
+@app.route("/mod")
+def show_info():
+  return render_template("mod.html")
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", debug=True)
