@@ -60,9 +60,9 @@ class Entries:
 
 
 @app.route("/home")
+@app.route("/")
 def hello_world():
   return render_template("home.html", creators=CREATORS)
-
 
 @app.route("/api/creators")
 def list_creators():
