@@ -18,10 +18,21 @@
   <div class="container">
     <h1 class="text-center mt-4 mb-4">DSS for Hate Speech Detection</h1>
     <img class="img-fluid" id="banner" src="https://i0.wp.com/vitalflux.com/wp-content/uploads/2022/03/hate-speech-detection-using-machine-learning.png">
-    <p>ToDo-Insert form here</p>
-    <div class="text-center">
-      <button type="button" class="btn btn-primary">Submit Details</button>
-    </div>
+    <h2 class="text-center mt-4 mb-4">About this site</h2>
+    <p>This is a website that we have created to simulate the workings of a social media platform, that only takes in the values for username and the entered text data, and upon clicking the submit button, stores the values either in a database or in a local variable for further comparisons.<br>If offensive or hateful speech is detected by the program, it assigns a strike modifier to the registered username, or increments the value if it already exists. If the strikes against the username hit three, the user who it is against gets restricted and is not allowed to post any further text on  the site</p><br>
+    <h3>Test out the program here:</h3>
+    <div>
+      <form>
+        <table cellspacing="2" align="center" cellpadding="8" border="0"> 
+        <tr><td>Username:</td>
+          <td><input type="text" name="username" id="name"></input></td>         </tr>
+        <tr><td>Enter the input here:</td>
+          <td><input type="textarea" name="txtfld" id="txtfld"></input></td></tr>
+          </table>
+        <div class="text-center">
+          <button type="button" class="btn btn-primary">Submit Details</button>
+        </div>
+      </form>
     <p>The Creators of this project are:</p>
     <p>
       {%for creator in creators%}
