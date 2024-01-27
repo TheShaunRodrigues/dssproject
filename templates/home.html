@@ -22,17 +22,19 @@
     <p>This is a website that we have created to simulate the workings of a social media platform, that only takes in the values for username and the entered text data, and upon clicking the submit button, stores the values either in a database or in a local variable for further comparisons.<br>If offensive or hateful speech is detected by the program, it assigns a strike modifier to the registered username, or increments the value if it already exists. If the strikes against the username hit three, the user who it is against gets restricted and is not allowed to post any further text on  the site</p><br>
     <h3>Test out the program here:</h3>
     <div>
-      <form>
+      <form action="" id="MainContent">
         <table cellspacing="2" align="center" cellpadding="8" border="0"> 
         <tr><td>Username:</td>
           <td><input type="text" name="username" id="name"></input></td>         </tr>
         <tr><td>Enter the input here:</td>
-          <td><textarea name="txtfld" id="txtfld" rows="5" cols="50"></textarea></td></tr>
+          <td><textarea name="comment" id="comment" rows="5" cols="50"></textarea></td></tr>
           </table>
         <div class="text-center">
-          <button type="button" class="btn btn-primary">Submit Details</button>
+          <button type="submit" class="btn btn-primary">Submit Details</button>
         </div>
       </form>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+       <script src="static/trial1.js"></script>
       <br>
     <p>The Creators of this project are:</p>
     <p>
