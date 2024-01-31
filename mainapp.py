@@ -61,7 +61,7 @@ from sklearn.metrics import accuracy_score
 
 print(accuracy_score(y_test, y_pred))
 #Predicting the outcome
-uname = "Bundalicker9989"
+uname = "Bundaconnoisseur9989"
 inp = "You are too bad and I dont like your attitude"
 inp = cv.transform([inp]).toarray()
 print(model.predict(inp))
