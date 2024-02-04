@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  const mySecret = process.env['FirebaseAccess'],
+  const mySecret = process.env['FirebaseAccess']
   //insert FirebaseAccessCredentialsHereFromSecret
 };
 
@@ -16,17 +16,19 @@ function submitForm(e) {
 
   var name = getElementVal("name");
   var comment = getElementVal("comment");
-  console.log(name, comment);
-  saveMessages(name, comment);
+  var counter=0;
+  console.log(name, comment, counter);
+  saveMessages(name, comment, counter);
   document.getElementById("MainContent").reset();
 }
 
-const saveMessages = (name, comment) => {
+const saveMessages = (name, comment, counter) => {
   var newUserDetails = UserDetailsDB.push();
 
   newUserDetails.set({
     name: name,
     comment: comment,
+    counter: counter
   });
 };
 
