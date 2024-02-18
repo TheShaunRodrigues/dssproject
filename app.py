@@ -1,5 +1,7 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, request,  jsonify
 from dataclasses import dataclass
+from subprocess import check_output
+from mainapp import detect_hate_speech
 
 app = Flask(__name__)
 
@@ -14,7 +16,7 @@ CREATORS = [{
     "name": "Colin Pereira"
 }]
 
-
+'''
 @dataclass
 class Entries1:
   id: int
@@ -57,7 +59,7 @@ class Entries:
     if self.strikes >= 3:
       # Deny access to the text field
       pass
-
+'''
 
 @app.route("/home")
 @app.route("/")
@@ -71,6 +73,15 @@ def list_creators():
 @app.route("/mod")
 def show_info():
   return render_template("mod.html")
+
+@app.route("/detect-hate-speech", methods=["POST"])
+def detect_hate_speech_route():
+  data= request.json
+  username=data.get("username")
+  text=data.get("text")
+
+  result=detect_hate_speech(username, text)
+  return jsonify(result)
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", debug=True)

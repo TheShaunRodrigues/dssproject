@@ -60,10 +60,15 @@ y_pred  #Accuracy Score of our model
 from sklearn.metrics import accuracy_score
 
 print(accuracy_score(y_test, y_pred))
+'''
 #Predicting the outcome
 uname = "Bundaconnoisseur9989"
 inp = "You are too bad and I dont like your attitude"
 inp = cv.transform([inp]).toarray()
 print(model.predict(inp))
-if model.predict(inp) == 0:
-  add_entry(self, uname, inp, 1)
+'''
+def detect_hate_speech(username, text):
+  cleaned_text=clean(text)
+  text_vectorized=cv.transform([cleaned_text])
+  result=model.predict(text_vectorized)[0]
+  return {"name":username, "text":text, "result":result}
