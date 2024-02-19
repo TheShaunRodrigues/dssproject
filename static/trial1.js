@@ -34,8 +34,12 @@ const sendDataToFlaskAndFirebase = (name, comment, counter) => {
             text: comment
         })
     })
-    .then(response => response.json())
-    .then(result => {
+      .then(response => response.json())
+      .then(result => {
+          // If result indicates hate or offensive speech, increment the counter
+          if (result.result === "Hate Speech" || result.result === "Offensive Speech") {
+              counter += 1;
+          }
         // Save the data to Firebase
         saveMessages(name, comment, counter);
     })
