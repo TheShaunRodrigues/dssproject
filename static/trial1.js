@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  const mySecret = process.env['apiKey']
+  const mySecret = process.env['FirebaseAccess']
   //insert FirebaseAccessCredentialsHereFromSecret
 };
 
@@ -47,8 +47,10 @@ const sendDataToFlaskAndFirebase = (name, comment, counter) => {
 };
 
 const saveMessages = (name, comment, counter) => {
-  var newUserDetails = UserDetailsDB.push();
+  var usersRef = UserDetailsDB.child("Users");
 
+  // Push the data to the specified path
+  var newUserDetails = usersRef.child(name).push();
   newUserDetails.set({
     name: name,
     comment: comment,
