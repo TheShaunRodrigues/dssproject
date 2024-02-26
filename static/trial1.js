@@ -34,17 +34,39 @@ const sendDataToFlaskAndFirebase = (name, comment, counter) => {
             text: comment
         })
     })
-      .then(response => response.json())
-      .then(result => {
-          // If result indicates hate or offensive speech, increment the counter
-          if (result.result === "Hate Speech" || result.result === "Offensive Speech") {
-              counter += 1;
-          }
-        // Save the data to Firebase
-        saveMessages(name, comment, counter);
+    .then(response => response.json())
+    .then(result => {
+        // If result indicates hate or offensive speech, increment the counter
+        if (result.result === "Hate Speech" || result.result === "Offensive Speech") {
+            // Fetch user details and update the counter
+            fetchAndUpdateCounter(name, comment, counter);
+        } else {
+            // No hate speech detected, simply save the message
+            saveMessages(name, comment, counter);
+        }
     })
     .catch(error => console.error('Error:', error));
 };
+
+const fetchAndUpdateCounter = (name, comment, counter) => {
+    var usersRef = UserDetailsDB.child("Users").child(name);
+
+    // Fetch all entries for the given username
+    usersRef.once('value', function(snapshot) {
+        var highestCounter = counter; // Initialize with current counter
+        snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            highestCounter = Math.max(highestCounter, childData.counter);
+        });
+
+        // Increment the counter
+        counter = highestCounter + 1;
+
+        // Save the updated message with the incremented counter
+        saveMessages(name, comment, counter);
+    });
+};
+
 
 const saveMessages = (name, comment, counter) => {
   var usersRef = UserDetailsDB.child("Users");
@@ -57,6 +79,7 @@ const saveMessages = (name, comment, counter) => {
     counter: counter
   });
 };
+
 
 const getElementVal = (id) => {
   return document.getElementById(id).value;
