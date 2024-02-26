@@ -64,6 +64,13 @@ const fetchAndUpdateCounter = (name, comment, counter) => {
 
         // Save the updated message with the incremented counter
         saveMessages(name, comment, counter);
+
+      if (counter >= 3) {
+          // Disable the comment text area
+          document.getElementById("comment").disabled = true;
+          // Show an alert
+          alert("Your comments have been blocked due to detection of excessive hate and/or offensive speech");
+      }
     });
 };
 
